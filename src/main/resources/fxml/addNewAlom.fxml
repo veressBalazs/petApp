@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.prt.petApp.petApp.ui.AddNewAlomController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Button fx:id="doneBt" alignment="CENTER" mnemonicParsing="false" onAction="#onDoneBt" text="Done" />
+            <Button fx:id="cancleBt" mnemonicParsing="false" onAction="#onCancleBt" text="Cancle" />
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="90.0" text="Azonosító" />
+            <Label prefHeight="17.0" prefWidth="129.0" text="Te Atonosító" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="106.0" text="Alomszám" GridPane.rowIndex="2" />
+            
+            <TextField fx:id="te_id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="alomszam" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Elhullás" />
+            <Label text="Leírás" GridPane.rowIndex="1" />
+            <Label text="Dátum" GridPane.rowIndex="2" />
+            <TextField fx:id="elhullas" GridPane.columnIndex="1" />
+            <TextField fx:id="leiras" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="datee" prefHeight="25.0" prefWidth="297.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

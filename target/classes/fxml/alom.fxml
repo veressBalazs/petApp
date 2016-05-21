@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="778.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.prt.petApp.petApp.ui.AlomController">
+    <stylesheets>
+        <URL value="@/styles/accountance.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="alomTable" layoutX="18.0" layoutY="124.0" prefHeight="427.0" prefWidth="606.0">
+        <columns>
+            <TableColumn fx:id="ID" prefWidth="30.0" text="ID" />
+          <TableColumn fx:id="ALOMSZAM" prefWidth="109.0" text="Alomszám" />
+            <TableColumn fx:id="ELHULLAS" prefWidth="129.0" text="Elhullás" />
+            <TableColumn fx:id="LEIRAS" prefWidth="180.0" text="Leírás" />
+            <TableColumn fx:id="DATEE" prefWidth="157.0" text="Dátum" />
+            <TableColumn fx:id="TEID" prefWidth="75.0" text="Column X" visible="false" />
+        </columns>
+      </TableView>
+      <Button fx:id="addBt" layoutX="17.0" layoutY="551.0" mnemonicParsing="false" onAction="#onAddBt" text="Add" />
+      <Button fx:id="updateBt" layoutX="294.0" layoutY="551.0" mnemonicParsing="false" onAction="#onUpdateBt" text="Update" />
+      <Button fx:id="deleteBt" layoutX="573.0" layoutY="551.0" mnemonicParsing="false" onAction="#onDeleteBt" text="Delete" />
+      <Label fx:id="bigst" layoutX="647.0" layoutY="296.0" prefHeight="25.0" prefWidth="86.0" text="lenagyobb alom" />
+      <Label fx:id="all" layoutX="647.0" layoutY="234.0" prefHeight="36.0" prefWidth="108.0" text="Összes szaporulat" />
+      <Label fx:id="avr" layoutX="647.0" layoutY="195.0" prefHeight="25.0" prefWidth="100.0" text="átlagos alomszám" />
+      <Button fx:id="backBtn" layoutX="15.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleBackBtn" text="Back" />
+      <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="8.0" prefHeight="100.0" prefWidth="812.0">
+         <children>
+            <Label fx:id="teId" prefHeight="32.0" prefWidth="108.0" text="teID" />
+            <Label fx:id="teType" prefHeight="32.0" prefWidth="108.0" text="TE Type" />
+            <Label fx:id="teDescription" prefHeight="32.0" prefWidth="108.0" text="Te description" />
+            <Label fx:id="teSetDate" prefHeight="32.0" prefWidth="108.0" text="Te setDate" />
+         </children>
+      </HBox>
+      <Label layoutX="647.0" layoutY="342.0" prefHeight="17.0" prefWidth="86.0" text="Elhullási arány" />
+   </children>
+</AnchorPane>

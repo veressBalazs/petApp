@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="778.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.prt.petApp.petApp.ui.RegisterController">
+    <stylesheets>
+        <URL value="@/styles/accountance.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="regTable" layoutX="14.0" layoutY="91.0" prefHeight="432.0" prefWidth="724.0">
+        <columns>
+          <TableColumn fx:id="ID" prefWidth="118.0" text="id" />
+          <TableColumn fx:id="TYPE" prefWidth="152.0" text="Type" />
+            <TableColumn fx:id="DESCRIPTION" prefWidth="255.0" text="Description" />
+            <TableColumn fx:id="DATE" prefWidth="198.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="addBt" layoutX="16.0" layoutY="524.0" mnemonicParsing="false" onAction="#onAddBt" text="Add" />
+      <Button fx:id="updateBt" layoutX="349.0" layoutY="524.0" mnemonicParsing="false" onAction="#onUpdateBt" text="Update" />
+      <Button fx:id="deleteBt" layoutX="687.0" layoutY="524.0" mnemonicParsing="false" onAction="#onDeleteBt" text="Delete" />
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleBackBtn" text="Back" />
+      <ComboBox fx:id="cb" layoutX="14.0" layoutY="33.0" onAction="#onFilterBtn" prefWidth="150.0" />
+      <Button fx:id="allBtn" layoutX="187.0" layoutY="33.0" mnemonicParsing="false" onAction="#onAllBtn" prefHeight="25.0" prefWidth="150.0" text="Összes Megjelenítése" />
+      <Button fx:id="moreBtn" layoutX="572.0" layoutY="33.0" mnemonicParsing="false" onAction="#onMoreBtn" prefHeight="25.0" prefWidth="166.0" text="További Információ" />
+      <Label fx:id="warnLabel" layoutX="406.0" layoutY="528.0" prefHeight="17.0" prefWidth="166.0" textFill="#ee0000" />
+      <Label fx:id="warnLabel1" layoutX="620.0" layoutY="561.0" prefHeight="17.0" prefWidth="134.0" textFill="#ee0000" />
+   </children>
+</AnchorPane>

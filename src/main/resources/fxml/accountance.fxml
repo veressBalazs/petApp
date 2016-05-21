@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="617.0" prefWidth="778.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.prt.petApp.petApp.ui.AccountanceController">
+    <stylesheets>
+        <URL value="@/styles/accountance.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="accTable" layoutX="14.0" layoutY="14.0" prefHeight="519.0" prefWidth="595.0">
+        <columns>
+          <TableColumn fx:id="ID" prefWidth="30.0" text="id" />
+          <TableColumn fx:id="TYPE" prefWidth="100.0" text="Type" />
+            <TableColumn fx:id="AMOUNT" prefWidth="54.0" text="Amount" />
+            <TableColumn fx:id="IN_OUT" prefWidth="78.0" text="in_out" />
+            <TableColumn fx:id="DESCRIPTION" prefWidth="122.0" text="Description" />
+            <TableColumn fx:id="SUMM" prefWidth="76.0" text="Sum" />
+            <TableColumn fx:id="DATE" prefWidth="133.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="addBt" layoutX="16.0" layoutY="533.0" mnemonicParsing="false" onAction="#onAddBt" text="Add" />
+      <Button fx:id="updateBt" layoutX="284.0" layoutY="533.0" mnemonicParsing="false" onAction="#onUpdateBt" text="Update" />
+      <Button fx:id="deleteBt" layoutX="558.0" layoutY="533.0" mnemonicParsing="false" onAction="#onDeleteBt" text="Delete" />
+      <Label fx:id="osszL" layoutX="647.0" layoutY="296.0" prefHeight="25.0" prefWidth="86.0" text="Összesített" />
+      <Label fx:id="kiL" layoutX="647.0" layoutY="234.0" prefHeight="36.0" prefWidth="86.0" text="Kiadás" />
+      <Label fx:id="beL" layoutX="647.0" layoutY="195.0" prefHeight="25.0" prefWidth="65.0" text="Bevétel" />
+      <Button fx:id="backBtn" layoutX="14.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleBackBtn" text="Back" />
+      <Label fx:id="warnL1" layoutX="366.0" layoutY="528.0" prefHeight="17.0" prefWidth="159.0" />
+      <Label fx:id="warnL2" layoutX="615.0" layoutY="528.0" prefHeight="17.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
