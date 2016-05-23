@@ -7,6 +7,7 @@ package hu.unideb.prt.petApp.petApp.ui;
 
 import hu.unideb.prt.petApp.petApp.entity.AlomDAO;
 import hu.unideb.prt.petApp.petApp.entity.AlomEntity;
+import hu.unideb.prt.petApp.petApp.entity.TeEntity;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -39,6 +40,12 @@ public class AddNewAlomController implements Initializable {
     private TextField leiras;
     @FXML
     private DatePicker datee;
+    
+    TeEntity teEntity;
+
+    
+
+   
 
     /**
      * Initializes the controller class.
@@ -69,5 +76,12 @@ public class AddNewAlomController implements Initializable {
         s.close();
         
     }
+    
+    public void setTeEntity(TeEntity teEntity) {
+        te_id.setText(String.valueOf(teEntity.getId()));
+        this.teEntity = teEntity;
+        
+    }
+    
     
 }

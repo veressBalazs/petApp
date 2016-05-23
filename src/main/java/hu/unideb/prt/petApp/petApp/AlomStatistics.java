@@ -5,10 +5,18 @@
  */
 package hu.unideb.prt.petApp.petApp;
 
+import hu.unideb.prt.petApp.petApp.entity.AlomEntity;
+import java.util.List;
+
 /**
  *
  * @author Bali
  */
 public class AlomStatistics {
+    
+    public void alomszamAtlag(int teId){
+        
+        
+    }
     
 }

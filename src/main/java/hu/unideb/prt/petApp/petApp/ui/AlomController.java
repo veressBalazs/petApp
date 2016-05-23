@@ -95,12 +95,17 @@ public class AlomController implements Initializable {
     @FXML
     private void onAddBt(ActionEvent event) throws IOException {
          Stage stage = new Stage();
-        VBox mainPane = (VBox) FXMLLoader.load(getClass().getResource("/fxml/addNewAlom.fxml"));
+         FXMLLoader loader = new FXMLLoader();
+         loader.setLocation(getClass().getResource("/fxml/addNewAlom.fxml"));
+        VBox mainPane = (VBox) loader.load();
 
         Scene scene = new Scene(mainPane);
         stage.setTitle("Add Entry");
         stage.setScene(scene);
         //stage.initStyle(StageStyle.UNDECORATED);
+        
+        AddNewAlomController addNewAlomController = loader.getController();
+        addNewAlomController.setTeEntity(teEntity);
         disablemenu(true);
         stage.showAndWait();
         disablemenu(false);
