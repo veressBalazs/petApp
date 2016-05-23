@@ -6,6 +6,8 @@
 package hu.unideb.prt.petApp.petApp.ui;
 
 import hu.unideb.prt.petApp.petApp.entity.TeDAO;
+import hu.unideb.prt.petApp.petApp.entity.TeDAOFactory;
+import hu.unideb.prt.petApp.petApp.entity.TeDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.TeEntity;
 import java.net.URL;
 import java.time.LocalDate;
@@ -55,6 +57,7 @@ public class AddNewTeController implements Initializable {
     Label datum;
 
     private TeEntity te;
+    private TeDAOFactory daoFactory;
 
     Boolean edit = Boolean.FALSE;
 
@@ -63,19 +66,24 @@ public class AddNewTeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        daoFactory = TeDAOFactory.getInstance();
+        
         ObservableList<String> items = FXCollections.observableArrayList();
         items.add("Törpenyúl");
         items.add("Nyúl");
         items.add("Csincsilla");
         items.add("Hörcsög");
         items.add("Degu");
-        items.add("Tengerimalac");
+        items.add("Tengerima"
+                + "lac");
         type.setItems(items);
         //csillagoz(false);
     }
 
     @FXML
     private void onDoneBt(ActionEvent event) {
+        TeDAO td = daoFactory.createTeDAO();
         LocalDate dat = datee.getValue();
         if (id.getText().isEmpty() || type.getSelectionModel().getSelectedItem().isEmpty() || dat.toString().isEmpty()) {
             warningLabel.setText("A * -al jelölt mezők kitöltése kötelező!");
@@ -91,7 +99,7 @@ public class AddNewTeController implements Initializable {
             te.setDescription(description.getText());
             LocalDate date = datee.getValue();
             te.setDatee(date.toString());
-            TeDAO.createTe(te);
+            td.createTe(te);
             onCancleBt();
             //csillagoz(false);
         }

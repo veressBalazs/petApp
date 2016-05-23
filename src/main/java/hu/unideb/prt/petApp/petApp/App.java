@@ -3,15 +3,15 @@ package hu.unideb.prt.petApp.petApp;
 import hu.unideb.prt.petApp.petApp.entity.AccountancyDAOFactory;
 import hu.unideb.prt.petApp.petApp.entity.AccountancyDAOImpl;
 import static hu.unideb.prt.petApp.petApp.entity.AccountancyDAOImpl.*;
-import static hu.unideb.prt.petApp.petApp.entity.TeDAO.*;
-import static hu.unideb.prt.petApp.petApp.entity.AlomDAO.*;
+import static hu.unideb.prt.petApp.petApp.entity.TeDAOImpl.*;
+import static hu.unideb.prt.petApp.petApp.entity.AlomDAOImpl.*;
 //import static hu.unideb.prt.petApp.petApp.entity.AccountancyDAO.em;
 
 import hu.unideb.prt.petApp.petApp.entity.AccountancyEntity;
 import hu.unideb.prt.petApp.petApp.entity.AccountancyEntity;
-import hu.unideb.prt.petApp.petApp.entity.AlomDAO;
+import hu.unideb.prt.petApp.petApp.entity.AlomDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.AlomEntity;
-import hu.unideb.prt.petApp.petApp.entity.TeDAO;
+import hu.unideb.prt.petApp.petApp.entity.TeDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.TeEntity;
 import hu.unideb.prt.petApp.petApp.ui.AccountanceStarter;
 import java.time.Clock;
@@ -39,10 +39,10 @@ public class App
         
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("org.petApp.jpa");
 //        AccountancyDAOImpl.em = emf.createEntityManager();
-        EntityManagerFactory emfTe = Persistence.createEntityManagerFactory("org.petApp.jpa");
-        TeDAO.em = emfTe.createEntityManager();
-        EntityManagerFactory emfAlom = Persistence.createEntityManagerFactory("org.petApp.jpa");
-        AlomDAO.em = emfAlom.createEntityManager();
+//        EntityManagerFactory emfTe = Persistence.createEntityManagerFactory("org.petApp.jpa");
+//        TeDAOImpl.em = emfTe.createEntityManager();
+//        EntityManagerFactory emfAlom = Persistence.createEntityManagerFactory("org.petApp.jpa");
+//        AlomDAOImpl.em = emfAlom.createEntityManager();
         
         
         

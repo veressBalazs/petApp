@@ -6,40 +6,19 @@
 package hu.unideb.prt.petApp.petApp.entity;
 
 import java.util.List;
-import javax.persistence.EntityManager;
 
 /**
  *
  * @author Bali
  */
-public class TeDAO {
-        public static EntityManager em;
-        
-        
-        public static void createTe(TeEntity te){
-            em.getTransaction().begin();
-            em.persist(te);
-            em.getTransaction().commit();
-        }
-        
-        
-        public static List<TeEntity> readAllTe(){ 
-            em.getTransaction().begin();
-            List<TeEntity> l = em.createQuery("Select t FROM TeEntity t",TeEntity.class).getResultList();
-            em.getTransaction().commit();
-               
-               return l;
-        }
-        
-        public static void removeTe(TeEntity te){
-            em.getTransaction().begin();
-            em.remove(te);
-            em.getTransaction().commit();
-        }
-        
-        public static TeEntity readTe(int id){
-            
-            return em.find(TeEntity.class, id);
-        }
+public interface TeDAO {
+    
+    public void createTe(TeEntity te);
+    
+    public List<TeEntity> readAllTe();
+    
+    public void removeTe(TeEntity te);
+    
+    public TeEntity readTe(int id);
     
 }

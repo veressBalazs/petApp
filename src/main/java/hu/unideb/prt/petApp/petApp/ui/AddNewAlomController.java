@@ -6,6 +6,8 @@
 package hu.unideb.prt.petApp.petApp.ui;
 
 import hu.unideb.prt.petApp.petApp.entity.AlomDAO;
+import hu.unideb.prt.petApp.petApp.entity.AlomDAOFactory;
+import hu.unideb.prt.petApp.petApp.entity.AlomDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.AlomEntity;
 import hu.unideb.prt.petApp.petApp.entity.TeEntity;
 import java.net.URL;
@@ -42,9 +44,10 @@ public class AddNewAlomController implements Initializable {
     private DatePicker datee;
     
     TeEntity teEntity;
-
     
-
+    private AlomDAOFactory daoFactory;
+    
+    
    
 
     /**
@@ -52,11 +55,12 @@ public class AddNewAlomController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        daoFactory = AlomDAOFactory.getInstance();
     }    
 
     @FXML
     private void onDoneBt(ActionEvent event) {
+        AlomDAO ad = daoFactory.createAlomDAO();
         AlomEntity ae = new AlomEntity();
         
         ae.setTe_id(Integer.parseInt(te_id.getText()));
@@ -66,7 +70,7 @@ public class AddNewAlomController implements Initializable {
         LocalDate date = datee.getValue();
         ae.setDatee(date.toString());
         
-        AlomDAO.createAlom(ae);
+        ad.createAlom(ae);
         onCancleBt();
     }
 
@@ -82,6 +86,8 @@ public class AddNewAlomController implements Initializable {
         this.teEntity = teEntity;
         
     }
+    
+    
     
     
 }

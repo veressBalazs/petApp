@@ -6,6 +6,8 @@
 package hu.unideb.prt.petApp.petApp.ui;
 
 import hu.unideb.prt.petApp.petApp.entity.TeDAO;
+import hu.unideb.prt.petApp.petApp.entity.TeDAOFactory;
+import hu.unideb.prt.petApp.petApp.entity.TeDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.TeEntity;
 import java.io.IOException;
 import java.net.URL;
@@ -66,14 +68,17 @@ public class RegisterController implements Initializable {
     Label warnLabel;
     @FXML
     Label warnLabel1;
+    private TeDAOFactory daoFactory;
     
-    List<TeEntity> lista = TeDAO.readAllTe();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       refreshData(lista);
+        daoFactory = TeDAOFactory.getInstance();
+        TeDAO td = daoFactory.createTeDAO();
+        List<TeEntity> lista = td.readAllTe();
+        refreshData(lista);
         ObservableList<String> items = FXCollections.observableArrayList();
         items.add("Törpenyúl");
         items.add("Nyúl");
@@ -129,6 +134,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void onDeleteBt(ActionEvent event) {
+        TeDAO td = daoFactory.createTeDAO();
         TeEntity te = regTable.getSelectionModel().getSelectedItem();
         if(te == null){
             warnLabel1.setText("Nincs elem kiválasztva!");
@@ -137,7 +143,7 @@ public class RegisterController implements Initializable {
         }
         warnLabel1.setText(" ");
         warnLabel.setText(" ");
-        TeDAO.removeTe(te);
+        td.removeTe(te);
         refreshData(filter(cb.getValue()));
     }
 
@@ -165,7 +171,8 @@ public class RegisterController implements Initializable {
     
     @FXML
     private void onAllBtn(){
-        List<TeEntity> lista = TeDAO.readAllTe();
+        TeDAO td = daoFactory.createTeDAO();
+        List<TeEntity> lista = td.readAllTe();
         refreshData(lista);
     
     }
@@ -213,8 +220,8 @@ public class RegisterController implements Initializable {
     }
     
     private List<TeEntity> filter(String tipus){
-    
-        List<TeEntity> lista = TeDAO.readAllTe();
+        TeDAO td = daoFactory.createTeDAO();
+        List<TeEntity> lista = td.readAllTe();
         List<TeEntity> l = new ArrayList<>();
         if(tipus==null){
             return lista;

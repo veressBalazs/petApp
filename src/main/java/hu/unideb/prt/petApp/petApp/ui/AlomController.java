@@ -6,8 +6,10 @@
 package hu.unideb.prt.petApp.petApp.ui;
 
 import hu.unideb.prt.petApp.petApp.entity.AlomDAO;
+import hu.unideb.prt.petApp.petApp.entity.AlomDAOFactory;
+import hu.unideb.prt.petApp.petApp.entity.AlomDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.AlomEntity;
-import hu.unideb.prt.petApp.petApp.entity.TeDAO;
+import hu.unideb.prt.petApp.petApp.entity.TeDAOImpl;
 import hu.unideb.prt.petApp.petApp.entity.TeEntity;
 import java.io.IOException;
 import java.net.URL;
@@ -75,7 +77,7 @@ public class AlomController implements Initializable {
     private Label avr;
     @FXML
     private Button backBtn;
-    List<AlomEntity> lista = AlomDAO.readAllAlom();
+    private AlomDAOFactory daoFactory;
     private TeEntity teEntity;
 
    
@@ -87,6 +89,9 @@ public class AlomController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        daoFactory = AlomDAOFactory.getInstance();
+        AlomDAO ad = daoFactory.createAlomDAO();
+        List<AlomEntity> lista = ad.readAllAlom();
         refreshData(lista);
         System.out.println(teId.getText());
         
@@ -115,16 +120,34 @@ public class AlomController implements Initializable {
     }
 
     @FXML
-    private void onUpdateBt(ActionEvent event) {
+    private void onUpdateBt(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+         FXMLLoader loader = new FXMLLoader();
+         loader.setLocation(getClass().getResource("/fxml/updateAlom.fxml"));
+        VBox mainPane = (VBox) loader.load();
+
+        Scene scene = new Scene(mainPane);
+        stage.setTitle("Add Entry");
+        stage.setScene(scene);
+        //stage.initStyle(StageStyle.UNDECORATED);
+        
+        UpdateAlomController addNewAlomController = loader.getController();
+        addNewAlomController.setAlomEntity(alomTable.getSelectionModel().getSelectedItem());
+        disablemenu(true);
+        stage.showAndWait();
+        disablemenu(false);
+        System.out.println("alma: "+teId.getText());
+        refreshData(filter(Integer.parseInt(teId.getText())));
     }
 
     @FXML
     private void onDeleteBt(ActionEvent event) {
+        AlomDAO ad = daoFactory.createAlomDAO();
         AlomEntity ae = alomTable.getSelectionModel().getSelectedItem();
         if(ae==null)
             return;
         
-        AlomDAO.removeAlom(ae);
+        ad.removeAlom(ae);
         System.out.println(teEntity);
         refreshData(filter(Integer.parseInt(teId.getText())));
     }
@@ -174,9 +197,9 @@ public class AlomController implements Initializable {
     }
     
     private List<AlomEntity> filter (int id){ ///talán et is ki lehetne tenni innen
-        
+        AlomDAO ad = daoFactory.createAlomDAO();
         List<AlomEntity> l = new ArrayList<>();
-        List<AlomEntity> lista = AlomDAO.readAllAlom();
+        List<AlomEntity> lista = ad.readAllAlom();
         if(id ==0){
             return lista;
         }
