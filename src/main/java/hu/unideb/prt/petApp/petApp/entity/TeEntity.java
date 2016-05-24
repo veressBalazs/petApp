@@ -20,6 +20,7 @@ import javax.persistence.Table;
 @Table(name = "te")
 public class TeEntity {
 
+    
     @Id
     @Column(name = "id")
     int id;

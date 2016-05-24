@@ -11,7 +11,7 @@
       <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="600.0" spacing="10.0">
          <children>
             <Button fx:id="doneBt" alignment="CENTER" mnemonicParsing="false" onAction="#onDoneBt" text="Done" />
-            <Button fx:id="cancleBt" mnemonicParsing="false" onAction="#onCancleBt" text="Cancle" />
+            <Button fx:id="cancleBt" mnemonicParsing="false" onAction="#onCancleBt" text="Cancel" />
          </children>
          <padding>
             <Insets left="10.0" />

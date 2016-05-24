@@ -11,7 +11,7 @@
       <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="600.0" spacing="10.0">
          <children>
             <Button fx:id="doneBt" alignment="CENTER" mnemonicParsing="false" onAction="#onDoneBt" text="Done" />
-            <Button fx:id="cancleBt" mnemonicParsing="false" onAction="#onCancleBt" text="Cancle" />
+            <Button fx:id="cancleBt" mnemonicParsing="false" onAction="#onCancleBt" text="Cancel" />
          </children>
          <padding>
             <Insets left="10.0" />
@@ -28,7 +28,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="azonosito" prefHeight="17.0" prefWidth="77.0" text="Azonosító" />
+            <Label fx:id="azonosito" prefHeight="17.0" prefWidth="77.0" text="Típus" />
             <Label fx:id="mennyiseg" prefHeight="17.0" prefWidth="102.0" text="Mennyiség" GridPane.rowIndex="1" />
             <Label fx:id="kibe" prefHeight="17.0" prefWidth="84.0" text="Ki/Be" GridPane.rowIndex="2" />
             <TextField fx:id="type" GridPane.columnIndex="1" />

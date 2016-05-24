@@ -125,6 +125,7 @@ public class AddNewAccController implements Initializable {
             warnL.setText("A * -al jelölt mezők kitöltése kötelező!");
             warnL.setTextFill(Color.web("#ee0000"));
             csillagoz(true);
+            System.out.println(e);
         }
     }
 
