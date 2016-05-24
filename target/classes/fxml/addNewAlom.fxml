@@ -27,8 +27,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="17.0" prefWidth="129.0" text="Te Atonosító" />
-            <Label prefHeight="17.0" prefWidth="106.0" text="Alomszám" GridPane.rowIndex="1" />
+            <Label fx:id="te_azonosito" prefHeight="17.0" prefWidth="129.0" text="Te Atonosító" />
+            <Label fx:id="alom_szam" prefHeight="17.0" prefWidth="106.0" text="Alomszám" GridPane.rowIndex="1" />
             
             <TextField fx:id="te_id" GridPane.columnIndex="1" />
             <TextField fx:id="alomszam" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -43,14 +43,16 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Elhullás" />
+            <Label fx:id="hullas" text="Elhullás" />
             <Label text="Leírás" GridPane.rowIndex="1" />
-            <Label text="Dátum" GridPane.rowIndex="2" />
+            <Label fx:id="datum" text="Dátum" GridPane.rowIndex="2" />
             <TextField fx:id="elhullas" GridPane.columnIndex="1" />
             <TextField fx:id="leiras" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <DatePicker fx:id="datee" prefHeight="25.0" prefWidth="297.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="warn" prefHeight="17.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

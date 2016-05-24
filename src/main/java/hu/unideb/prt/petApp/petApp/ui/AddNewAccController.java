@@ -81,16 +81,33 @@ public class AddNewAccController implements Initializable {
     @FXML
     private void onDoneBt(ActionEvent event) {
         
-        AccountancyDAO ad = daoFactory.createAccountancyDAO();
+//        AccountancyDAO ad = daoFactory.createAccountancyDAO();
+//        LocalDate dat = datee.getValue();
+//        if(type.getText().isEmpty() || amount.getText().isEmpty()  
+//                       || in_out.getSelectionModel().getSelectedItem().isEmpty()
+//                       ||summ.getText().isEmpty() || dat.toString().isEmpty() ){
+//            warnL.setText("A * -al jelölt mezők kitöltése kötelező!");
+//            warnL.setTextFill(Color.web("#ee0000"));
+//            csillagoz(true);
+//        
+//        }else{
+//        if(!edit){
+//            ae = new AccountancyEntity();
+//        }
+//        ae.setType(type.getText());
+//        ae.setAmount(Integer.parseInt(amount.getText()));
+//        ae.setIn_out(in_out.getValue());
+//        ae.setDescription(description.getText());
+//        ae.setSumm(Integer.parseInt( summ.getText()));
+//        LocalDate date = datee.getValue();
+//        ae.setDatee(date.toString());
+//        
+//        ad.createEntry(ae);
+//        onCancleBt();
+//        }
+         AccountancyDAO ad = daoFactory.createAccountancyDAO();
         LocalDate dat = datee.getValue();
-        if(type.getText().isEmpty() || amount.getText().isEmpty()  
-                       || in_out.getSelectionModel().getSelectedItem().isEmpty()
-                       ||summ.getText().isEmpty() || dat.toString().isEmpty() ){
-            warnL.setText("A * -al jelölt mezők kitöltése kötelező!");
-            warnL.setTextFill(Color.web("#ee0000"));
-            csillagoz(true);
-        
-        }else{
+       try{
         if(!edit){
             ae = new AccountancyEntity();
         }
@@ -104,6 +121,10 @@ public class AddNewAccController implements Initializable {
         
         ad.createEntry(ae);
         onCancleBt();
+        }catch(Exception e){
+            warnL.setText("A * -al jelölt mezők kitöltése kötelező!");
+            warnL.setTextFill(Color.web("#ee0000"));
+            csillagoz(true);
         }
     }
 

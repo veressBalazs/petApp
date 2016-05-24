@@ -21,5 +21,7 @@ public interface AlomDAO {
     
     public AlomEntity readAlomById(int id);
     
-    public void UpdateAlom(AlomEntity ae);
+    public void UpdateAlom(AlomEntity ae,int alomszam, int elhullas, String leiras, String datum);
+    
+    public List<AlomEntity> ReadAlomByTeId(int id);
 }

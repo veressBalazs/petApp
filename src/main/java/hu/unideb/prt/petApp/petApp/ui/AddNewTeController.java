@@ -83,14 +83,29 @@ public class AddNewTeController implements Initializable {
 
     @FXML
     private void onDoneBt(ActionEvent event) {
-        TeDAO td = daoFactory.createTeDAO();
+//        TeDAO td = daoFactory.createTeDAO();
+//        LocalDate dat = datee.getValue();
+//        if (id.getText().isEmpty() || type.getSelectionModel().getSelectedItem().isEmpty() || dat.toString().isEmpty()) {
+//            warningLabel.setText("A * -al jelölt mezők kitöltése kötelező!");
+//            warningLabel.setTextFill(Color.web("#ee0000"));
+//            csillagoz(true);
+//            
+//        } else {
+//            if (!edit) {
+//                te = new TeEntity();
+//            }
+//            te.setId(Integer.parseInt(id.getText()));
+//            te.setType(type.getValue());
+//            te.setDescription(description.getText());
+//            LocalDate date = datee.getValue();
+//            te.setDatee(date.toString());
+//            td.createTe(te);
+//            onCancleBt();
+//            //csillagoz(false);
+//        }
+         TeDAO td = daoFactory.createTeDAO();
         LocalDate dat = datee.getValue();
-        if (id.getText().isEmpty() || type.getSelectionModel().getSelectedItem().isEmpty() || dat.toString().isEmpty()) {
-            warningLabel.setText("A * -al jelölt mezők kitöltése kötelező!");
-            warningLabel.setTextFill(Color.web("#ee0000"));
-            csillagoz(true);
-            
-        } else {
+       try {
             if (!edit) {
                 te = new TeEntity();
             }
@@ -102,6 +117,11 @@ public class AddNewTeController implements Initializable {
             td.createTe(te);
             onCancleBt();
             //csillagoz(false);
+        }catch(Exception e){
+            warningLabel.setText("A * -al jelölt mezők kitöltése kötelező!");
+            warningLabel.setTextFill(Color.web("#ee0000"));
+            csillagoz(true);
+            
         }
     }
 

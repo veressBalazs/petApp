@@ -45,7 +45,7 @@ public class App
 //        AlomDAOImpl.em = emfAlom.createEntityManager();
         
         
-        
+         //AlomStatistics.alomszamAtlag(1);
          System.out.println( "Hello World! asd asdasdasdads" );
          
          //AlomEntity ae = new AlomEntity(1, 10, 1, "eross alom");
